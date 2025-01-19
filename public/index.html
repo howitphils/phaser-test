@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const config = {
+        type: Phaser.AUTO, // Context in which the game will run
+        width: 800,
+        height: 600,
+        scene: {
+          // The scene is an object that contains the methods that Phaser will call when certain events happen
+          preload: preload,
+          create: create,
+          update: update,
+        },
+      };
+
+      const game = new Phaser.Game(config);
+
+      function preload() {
+        // This method is called once at the beginning of the game
+        // It's used to load assets like images and sounds
+        this.load.image("sky", "/assets/sky.png");
+        this.load.image("ground", "/assets/platform.png");
+        this.load.image("star", "/assets/star.png");
+        this.load.image("bomb", "/assets/bomb.png");
+        this.load.spritesheet("dude", "/assets/dude.png", {
+          frameWidth: 32,
+          frameHeight: 48,
+        });
+      }
+
+      function create() {
+        // This method is called once at the beginning of the game
+        // It's used to create the game world
+        this.add.image(400, 300, "sky");
+      }
+
+      function update() {
+        // This method is called 60 times per second
+        // It's used to update the state of the game
+      }
+    </script>
+  </body>
+</html>
