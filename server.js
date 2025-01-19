@@ -13,6 +13,7 @@ const mimeTypes = {
 };
 
 const server = http.createServer();
+const PORT = process.env.PORT || 3000;
 
 server.on("request", (req, res) => {
   // Get file path
@@ -39,7 +40,6 @@ server.on("request", (req, res) => {
   stream.pipe(res);
 });
 
-const port = 3000;
-server.listen(port, () => {
+server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
